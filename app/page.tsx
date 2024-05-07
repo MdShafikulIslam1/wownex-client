@@ -16,6 +16,13 @@ import type { MenuProps } from "antd";
 import { Input } from "antd";
 import Image from "next/image";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import banner1 from "@/assests/images/banner (2).jpg";
+
 const { Search } = Input;
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -165,6 +172,60 @@ export default function Home() {
           </div>
         </div>
       </nav>
+      {/* banner section */}
+      <div className="max-w-screen-xl mx-auto  w-full py-4 md:px-8 lg:px-20  bg-[#D9D9D9]">
+        <div className="flex gap-4">
+          <div className="banner-left hidden md:block md:w-[297px] h-[301px] bg-[#E7E8EC] rounded-[15px]">
+            <div className="banner-text pt-3  text-[#666666] text-justify ps-5 flex flex-col justify-start">
+              <p className="py-1"> Women and general fashion</p>
+              <p className="py-1">Watch’s Bags & Jewellery</p>
+              <p className="py-1">Kid’s & Men’s Fashion</p>
+              <p className="py-1">Kitchen Products</p>
+              <p className="py-1">Household & Outdoor</p>
+              <p className="py-1">TC & Home Appliences</p>
+              <p className="py-1">Electronic Accessories </p>
+              <p>Gadget & Accessories</p>
+            </div>
+          </div>
+          {/* swiper card */}
+          <div className="banner-right w-full md:w-[770px] h-[301px] bg-orange-400 rounded-2xl">
+            <Swiper
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper rounded-2xl"
+            >
+              <SwiperSlide>
+                <Image
+                  className="h-[301px] w-full"
+                  src={banner1}
+                  alt="banner"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  className="h-[301px] w-full"
+                  src={banner1}
+                  alt="banner"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  className="h-[301px] w-full"
+                  src={banner1}
+                  alt="banner"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  className="h-[301px] w-full"
+                  src={banner1}
+                  alt="banner"
+                />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
