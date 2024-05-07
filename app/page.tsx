@@ -9,19 +9,26 @@ import { Button, Drawer, Menu } from "antd";
 import Link from "next/link";
 import { useState } from "react";
 
-import cart from "@/public/cart.png";
-import logo from "@/public/logo.png";
+import cart from "@/app/assests/images/cart.png";
+import logo from "@/app/assests/images/logo.png";
 import { AppstoreOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Input } from "antd";
 import Image from "next/image";
 
+import ContactHeading from "@/components/contactHeading";
+import FooterPage from "@/components/Footer";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import banner1 from "@/assests/images/banner (2).jpg";
+const contentStyle: React.CSSProperties = {
+  margin: 0,
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79",
+};
 
 const { Search } = Input;
 
@@ -109,9 +116,9 @@ export default function Home() {
     setOpen(false);
   };
   return (
-    <>
+    <div className="max-w-screen-xl mx-auto md:px-8 lg:px-20">
       {/* desktop first navbar */}
-      <div className="max-w-screen-xl h-[90px] mx-auto items-center w-full md:px-8 lg:px-20 hidden md:flex bg-white text-black">
+      <div className=" h-[90px] mx-auto items-center w-full md:px-8 lg:px-20 hidden md:flex bg-white text-black">
         <div className="flex gap-x-20 w-full h-full justify-between items-center">
           <div>
             <Image alt="logo of wownex" src={logo} />
@@ -188,44 +195,28 @@ export default function Home() {
             </div>
           </div>
           {/* swiper card */}
-          <div className="banner-right w-full md:w-[770px] h-[301px] bg-orange-400 rounded-2xl">
-            <Swiper
-              navigation={true}
-              modules={[Navigation]}
-              className="mySwiper rounded-2xl"
-            >
-              <SwiperSlide>
-                <Image
-                  className="h-[301px] w-full"
-                  src={banner1}
-                  alt="banner"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image
-                  className="h-[301px] w-full"
-                  src={banner1}
-                  alt="banner"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image
-                  className="h-[301px] w-full"
-                  src={banner1}
-                  alt="banner"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image
-                  className="h-[301px] w-full"
-                  src={banner1}
-                  alt="banner"
-                />
-              </SwiperSlide>
-            </Swiper>
-          </div>
+          {/* <Carousel arrows infinite={false}>
+            <div>
+              <h3 style={contentStyle}>1</h3>
+            </div>
+            <div>
+              <h3 style={contentStyle}>2</h3>
+            </div>
+            <div>
+              <h3 style={contentStyle}>3</h3>
+            </div>
+            <div>
+              <h3 style={contentStyle}>4</h3>
+            </div>
+          </Carousel> */}
         </div>
       </div>
-    </>
+      <div className="max-w-screen-xl mx-auto bg-white px-20">
+        <ContactHeading />
+      </div>
+      <div className="w-full h-full bg-[#E7E8EC] px-20">
+        <FooterPage />
+      </div>
+    </div>
   );
 }
