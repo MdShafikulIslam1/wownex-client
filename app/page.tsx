@@ -1,4 +1,13 @@
 "use client";
+import { Input } from "antd";
+import Image from "next/image";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import banner1 from "@/app/assests/images/banner (2).jpg";
 import {
   CaretDownOutlined,
   MenuOutlined,
@@ -13,8 +22,6 @@ import cart from "@/app/assests/images/cart.png";
 import logo from "@/app/assests/images/logo.png";
 import { AppstoreOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Input } from "antd";
-import Image from "next/image";
 
 import ContactHeading from "@/components/contactHeading";
 import FooterPage from "@/components/Footer";
@@ -180,37 +187,45 @@ export default function Home() {
         </div>
       </nav>
       {/* banner section */}
-      <div className="max-w-screen-xl mx-auto  w-full py-4 md:px-8 lg:px-20  bg-[#D9D9D9]">
-        <div className="flex gap-4">
-          <div className="banner-left hidden md:block md:w-[297px] h-[301px] bg-[#E7E8EC] rounded-[15px]">
-            <div className="banner-text pt-3  text-[#666666] text-justify ps-5 flex flex-col justify-start">
-              <p className="py-1"> Women and general fashion</p>
-              <p className="py-1">Watch’s Bags & Jewellery</p>
-              <p className="py-1">Kid’s & Men’s Fashion</p>
-              <p className="py-1">Kitchen Products</p>
-              <p className="py-1">Household & Outdoor</p>
-              <p className="py-1">TC & Home Appliences</p>
-              <p className="py-1">Electronic Accessories </p>
+      <div className="max-w-screen-xl mx-auto w-full py-4 px-4 md:px-8 lg:px-20 bg-[#D9D9D9]">
+        <div className="flex flex-col md:flex-row gap-4">
+          {/* category items */}
+          <div className="banner-left  bg-[#E7E8EC] rounded-[15px] flex-shrink-0 px-2 hidden md:block">
+            <div className="banner-text pt-3 text-[#666666] text-justify ps-5 flex flex-col justify-start w-fit">
+              <p>Women and general fashion</p>
+              <p>Watch’s Bags & Jewellery</p>
+              <p>Kid’s & Men’s Fashion</p>
+              <p>Kitchen Products</p>
+              <p>Household & Outdoor</p>
+              <p>TC & Home Appliences</p>
+              <p>Electronic Accessories</p>
               <p>Gadget & Accessories</p>
             </div>
           </div>
           {/* swiper card */}
-          {/* <Carousel arrows infinite={false}>
-            <div>
-              <h3 style={contentStyle}>1</h3>
-            </div>
-            <div>
-              <h3 style={contentStyle}>2</h3>
-            </div>
-            <div>
-              <h3 style={contentStyle}>3</h3>
-            </div>
-            <div>
-              <h3 style={contentStyle}>4</h3>
-            </div>
-          </Carousel> */}
+          <div className="banner-right md:flex-1 lg:w-[700px] h-[301px] bg-orange-400 rounded-2xl ">
+            <Swiper
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper rounded-2xl h-full"
+            >
+              <SwiperSlide>
+                <Image className="object-contain" src={banner1} alt="banner" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image className="object-contain" src={banner1} alt="banner" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image className="object-contain" src={banner1} alt="banner" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image className="object-contain" src={banner1} alt="banner" />
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
+
       <div className="max-w-screen-xl mx-auto bg-white px-20">
         <ContactHeading />
       </div>

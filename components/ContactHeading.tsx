@@ -1,6 +1,5 @@
 import call from "@/app/assests/images/call.png";
 import whatsApp from "@/app/assests/images/whatsApp.png";
-
 import Image from "next/image";
 
 const ContactHeading = () => {
